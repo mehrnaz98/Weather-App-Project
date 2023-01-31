@@ -63,12 +63,14 @@ strong {
   padding-top: 100px;
   position: relative;
   top: 13px;
+  left: -7px;
 }
 
 .units {
   font-size: small;
   position: relative;
-  top: -7px;
+  top: -6px;
+  left: -7px;
 }
 
 .form-control {

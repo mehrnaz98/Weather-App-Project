@@ -150,7 +150,7 @@
       let hour = currentTime.getHours();
       let minute = currentTime.getMinutes();
       if (minute <= 9 && hour <= 9) {
-        clock = `0${hour}:0${min}`;
+        clock = `0${currentTime.getHours()}:0${currentTime.getMinutes()}`;
       }
       if (minute <= 9 && hour >= 10) {
         clock = `${currentTime.getHours()}:0${currentTime.getMinutes()}`;
