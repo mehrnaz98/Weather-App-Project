@@ -65,21 +65,19 @@
           <div class="row">
             <div class="col-6">
               <p id="currentTime">time</p>
-              <h2>
-                <i
-                  class="em em-cloud"
-                  aria-role="presentation"
-                  aria-label="CLOUD"
-                ></i>
-                <span id="deg">12</span>
-                <span class="units"
-                  ><a href="#" id="celsius-link">°C</a> |
-                  <a href="#" id="fahrenheit-link">°F</a></span
-                >
-              </h2>
+              <img
+                src="http://openweathermap.org/img/wn/01d@2x.png"
+                alt="Clouds"
+                class="icon"
+              />
+              <span id="deg">12</span>
+              <span class="units"
+                ><a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a></span
+              >
             </div>
             <div class="col-6">
-              <p>
+              <p id="details">
                 <span id="sky">Clouds</span> <br />
                 Humidity: <span id="humidity">96</span>% <br />
                 Wind: <span id="wind">0 </span> km/h
@@ -151,16 +149,16 @@
       let currentDay = days[currentTime.getDay()];
       let hour = currentTime.getHours();
       let minute = currentTime.getMinutes();
-      if (minute < 10 && hour < 10) {
+      if (minute <= 9 && hour <= 9) {
         clock = `0${hour}:0${min}`;
       }
-      if (minute < 10 && hour > 10) {
+      if (minute <= 9 && hour >= 10) {
         clock = `${currentTime.getHours()}:0${currentTime.getMinutes()}`;
       }
-      if (minute > 10 && hour < 10) {
+      if (minute >= 10 && hour <= 9) {
         clock = `0${currentTime.getHours()}:${currentTime.getMinutes()}`;
       }
-      if (minute > 10 && hour > 10) {
+      if (minute >= 10 && hour >= 10) {
         clock = `${currentTime.getHours()}:${currentTime.getMinutes()}`;
       }
 
@@ -181,6 +179,12 @@
         wind1.innerHTML = wind;
         let humidity1 = document.querySelector("#humidity");
         humidity1.innerHTML = humidity;
+        let iconElement = document.querySelector(".icon");
+        iconElement.setAttribute(
+          "src",
+          `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+        );
+        iconElement.setAttribute("alt", response.data.weather[0].icon);
       }
 
       function WeatherNews(event) {
@@ -220,6 +224,12 @@
         wind1.innerHTML = wind;
         let humidity1 = document.querySelector("#humidity");
         humidity1.innerHTML = humidity;
+        let iconElement = document.querySelector(".icon");
+        iconElement.setAttribute(
+          "src",
+          `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+        );
+        iconElement.setAttribute("alt", response.data.weather[0].icon);
       }
       let current = document.querySelector(".secondButton");
       current.addEventListener("click", currentPosition);
@@ -227,6 +237,8 @@
       let searchCity = document.querySelector(".firstButton");
       searchCity.addEventListener("click", WeatherNews);
       window.onload = currentPosition;
+
+      //document.getElementById("ContainAll").style.backgroundColor = "#FFFFFF";
     </script>
   </body>
 </html>
