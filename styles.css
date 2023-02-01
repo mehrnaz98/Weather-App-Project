@@ -1,6 +1,7 @@
 body {
   background-color: #e4d2dd;
 }
+
 h1 {
   display: block;
   margin: 0 auto;
@@ -9,11 +10,10 @@ strong {
   font-size: 19px;
 }
 .topic {
-  color: #041421;
   font-size: 45px;
 }
+
 #city {
-  color: #000000;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   text-transform: capitalize;
 }
@@ -51,7 +51,7 @@ strong {
   background-color: #fbdad34a;
   margin-top: 10px;
   padding: 10px 10px 10px 10px;
-  color: rgb(0, 0, 0);
+
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: bold;
   border-radius: 5px;
@@ -115,9 +115,7 @@ strong {
 
 .icon {
   margin: -10px -10px -15px -10px;
-  padding-top: 0;
-  padding-bottom: -100px;
-  padding-right: 30px;
+  width: 100px;
 }
 
 #currentTime {
