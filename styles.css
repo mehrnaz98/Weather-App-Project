@@ -63,7 +63,9 @@ strong {
   padding-top: 100px;
   position: relative;
   top: 13px;
-  left: -7px;
+  left: 1px;
+  padding-left: 10px;
+  padding-right: 2px;
 }
 
 .units {
@@ -71,6 +73,16 @@ strong {
   position: relative;
   top: -6px;
   left: -7px;
+}
+
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+  text-decoration: none;
+}
+
+.active:hover {
+  color: rgb(33, 33, 33);
 }
 
 .form-control {
@@ -103,8 +115,9 @@ strong {
 
 .icon {
   margin: -10px -10px -15px -10px;
-  padding-top: 0 0 0 0;
+  padding-top: 0;
   padding-bottom: -100px;
+  padding-right: 30px;
 }
 
 #currentTime {

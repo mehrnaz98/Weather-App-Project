@@ -63,20 +63,26 @@
         <div class="container" id="detail">
           <h1 id="city">Rasht</h1>
           <div class="row">
-            <div class="col-6">
+            <div class="col-7">
               <p id="currentTime">time</p>
-              <img
-                src="http://openweathermap.org/img/wn/01d@2x.png"
-                alt="Clouds"
-                class="icon"
-              />
-              <span id="deg">12</span>
-              <span class="units"
-                ><a href="#" id="celsius-link">°C</a> |
-                <a href="#" id="fahrenheit-link">°F</a></span
-              >
+              <div class="row">
+                <div class="col-3">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="Clouds"
+                    class="icon"
+                  />
+                </div>
+                <div class="col-9">
+                  <span id="deg">12</span>
+                  <span class="units"
+                    ><a href="#" id="celsius-link" class="active">°C</a> |
+                    <a href="#" id="fahrenheit-link"> °F</a></span
+                  >
+                </div>
+              </div>
             </div>
-            <div class="col-6">
+            <div class="col-5">
               <p id="details">
                 <span id="sky">Clouds</span> <br />
                 Humidity: <span id="humidity">96</span>% <br />
@@ -231,14 +237,57 @@
         );
         iconElement.setAttribute("alt", response.data.weather[0].icon);
       }
+
+      function displayCelsiusTemperature1(event) {
+        event.preventDefault();
+        const city = document.getElementById("city").innerText;
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e20e205e3f166da34e02121073321d9a&units=metric`;
+        axios.get(apiUrl).then(displayCelsiusTemperature2);
+      }
+
+      function displayCelsiusTemperature2(response) {
+        console.log(response.data);
+        let cityName = response.data.name;
+        let cName = document.querySelector("#city");
+        let temperature = Math.round(response.data.main.temp);
+        let h1 = document.querySelector("#deg");
+        celsiusLink.classList.add("active");
+        fahrenheitLink.classList.remove("active");
+        h1.innerHTML = temperature;
+      }
+
+      function displayFahrenheitTemperature1(event) {
+        event.preventDefault();
+        const city = document.getElementById("city").innerText;
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e20e205e3f166da34e02121073321d9a&units=metric`;
+        axios.get(apiUrl).then(displayFahrenheitTemperature2);
+      }
+
+      function displayFahrenheitTemperature2(response) {
+        console.log(response.data);
+        let cityName = response.data.name;
+        let cName = document.querySelector("#city");
+        let temperature = Math.round(response.data.main.temp);
+        let h1 = document.querySelector("#deg");
+        celsiusLink.classList.remove("active");
+        fahrenheitLink.classList.add("active");
+        let fahrenheiTemperature = Math.round((temperature * 9) / 5 + 32);
+        h1.innerHTML = `${fahrenheiTemperature}`;
+      }
+
       let current = document.querySelector(".secondButton");
       current.addEventListener("click", currentPosition);
 
       let searchCity = document.querySelector(".firstButton");
       searchCity.addEventListener("click", WeatherNews);
-      window.onload = currentPosition;
 
-      //document.getElementById("ContainAll").style.backgroundColor = "#FFFFFF";
+      let fahrenheitLink = document.querySelector("#fahrenheit-link");
+      fahrenheitLink.addEventListener("click", displayFahrenheitTemperature1);
+
+      let celsiusLink = document.querySelector("#celsius-link");
+      celsiusLink.addEventListener("click", displayCelsiusTemperature1);
+
+      window.onload = currentPosition;
     </script>
   </body>
 </html>
