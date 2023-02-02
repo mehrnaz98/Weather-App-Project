@@ -58,11 +58,11 @@ strong {
 }
 
 #deg {
-  font-size: 35px;
+  font-size: 45px;
   margin: -10px 2px -15px 10px;
   padding-top: 100px;
   position: relative;
-  top: 13px;
+  top: 5px;
   left: 1px;
   padding-left: 10px;
   padding-right: 2px;
@@ -71,7 +71,7 @@ strong {
 .units {
   font-size: small;
   position: relative;
-  top: -6px;
+  top: -21px;
   left: -7px;
 }
 

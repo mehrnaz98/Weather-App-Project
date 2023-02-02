@@ -132,6 +132,21 @@ function displayFahrenheitTemperature2(response) {
   h1.innerHTML = `${fahrenheiTemperature}`;
 }
 
+function nightMode() {
+  document.getElementById("ContainAll").style.backgroundImage =
+    "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/065/092/original/3d-render-tree-landscape-against-night-sky.jpg?1675084570)";
+  document.getElementById("ContainAll").style.color = "white";
+  document.getElementById("celsius-link").style.color = "#D5E5FC";
+  document.getElementById("fahrenheit-link").style.color = "#D5E5FC";
+  document.getElementById("sourceCode").style.color = "#62a0f3";
+  document.body.style.background = "#04285C";
+  document.body.style.color = "white";
+}
+
+if (18 < hour || hour < 5) {
+  nightMode();
+}
+
 let current = document.querySelector(".secondButton");
 current.addEventListener("click", currentPosition);
 
@@ -145,18 +160,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature1);
 
 window.onload = currentPosition;
-
-function nightMode() {
-  document.getElementById("ContainAll").style.backgroundImage =
-    "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/065/092/original/3d-render-tree-landscape-against-night-sky.jpg?1675084570)";
-  document.getElementById("ContainAll").style.color = "white";
-  document.getElementById("celsius-link").style.color = "#D5E5FC";
-  document.getElementById("fahrenheit-link").style.color = "#D5E5FC";
-  document.getElementById("sourceCode").style.color = "#62a0f3";
-  document.body.style.background = "#04285C";
-  document.body.style.color = "white";
-}
-
-if (0 < hour && hour < 5) {
-  nightMode();
-}
