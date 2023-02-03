@@ -69,10 +69,10 @@ strong {
 }
 
 .units {
-  font-size: small;
+  font-size: medium;
   position: relative;
-  top: -21px;
-  left: -7px;
+  top: -14px;
+  left: -3px;
 }
 
 .active {
