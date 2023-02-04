@@ -143,7 +143,7 @@ function nightMode() {
   document.body.style.color = "white";
 }
 
-if (18 < hour || hour < 5) {
+if (17 < hour || hour < 5) {
   nightMode();
 }
 
